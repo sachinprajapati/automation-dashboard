@@ -41,4 +41,4 @@ class Package(models.Model):
     updated = models.DateTimeField(auto_now=True, verbose_name=_('Last Updated'))
 
     def __str__(self):
-        return '%s -> %s : %s - %s' %(self.soft.name, self.soft.user, self.from_dt, self.to_dt)
+        return '%s -> %s : %s - %s' %(self.soft.client, self.soft.get_type_display(), self.from_dt, self.to_dt)
