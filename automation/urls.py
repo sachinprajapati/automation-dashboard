@@ -24,6 +24,6 @@ from users.views import *
 
 urlpatterns = [
     path('', admin.site.urls),
-    path('register-status/<str:mac>/', RegisterStatus),
+    path('register-status/<str:mac>/<int:Type>/', RegisterStatus),
     path('Register/', Register)
 ]

@@ -6,10 +6,10 @@ import json
 
 from .models import Software, Package
 
-def RegisterStatus(request, mac):
+def RegisterStatus(request, mac, Type):
     today = datetime.today()
-    if Software.objects.filter(mac=mac).exists():
-        dc = {'status': True, 'message': Software.objects.get(mac=mac).message}
+    if Software.objects.filter(mac=mac, type=Type).exists():
+        dc = {'status': True, 'message': Software.objects.get(mac=mac, type=Type).message}
     else:
         dc = {'status': False}
     if Package.objects.filter(soft__mac=mac, from_dt__lte=today.date(), to_dt__gte=today.date()).exists():

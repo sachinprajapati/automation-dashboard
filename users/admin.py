@@ -11,7 +11,7 @@ admin.site.unregister(Group)
 # admin.site.unregister(Site)
 
 class SoftwareAdmin(admin.ModelAdmin):
-    list_display = ('client', 'user', 'name', 'expiry')
+    list_display = ('client', 'user', 'type', 'expiry')
     list_filter = ('user', 'name')
     search_fields = ('user', 'name')
 

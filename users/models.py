@@ -13,7 +13,7 @@ SOFTWARE_TYPE = [
 
 class Software(models.Model):
     name = models.CharField(max_length=255, verbose_name=_('Machine'))
-    mac = models.CharField(max_length=12, verbose_name=_('Mac Address'), unique=True)
+    mac = models.CharField(max_length=12, verbose_name=_('Mac Address'))
     user = models.CharField(max_length=255, verbose_name=_('System User'))
     dt = models.DateTimeField(auto_now_add=True)
     message = models.TextField(null=True, blank=True)
@@ -22,7 +22,7 @@ class Software(models.Model):
     dt = models.DateTimeField(auto_now_add=True, auto_now=False)
 
     def __str__(self):
-        return '%s -> %s' % (self.name, self.user)
+        return '%s -> %s' % (self.client, self.get_type_display())
 
     def expiry(self):
         today = datetime.today()
